@@ -1,0 +1,57 @@
+{
+  //JSON ファイルですが1行コメントが使えます
+  //環境設定
+  "env": {
+    //ブラウザで実行されるコードを検証
+    "browser": true,
+    //ES6 で書かれたコードを検証
+    "es6": true
+  },
+  //プラグインが提供する推奨設定を指定
+  "extends": [
+    //ESLint が推奨するテスト項目（ルール）
+    "eslint:recommended",
+    // eslint-plugin-react が推奨するテスト項目（ルール）
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    //追加の言語機能
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    //ES Modules 機能を有効にする
+    "sourceType": "module"
+  },
+  //使用するプラグイン
+  "plugins": [
+    "react"
+  ],
+  //使用するプラグインのバージョンを自動検出する（指定いないとWarinigが出る）
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [
+    "webpack.config.js"
+  ],
+  //個別のルールの指定
+  "rules": {
+    //React が未使用として誤ってマークされるのを防止（警告にする）
+    "react/jsx-uses-react": "warn",
+    //JSXで使用される変数が未使用として誤ってマークされるのを防止（警告にする）
+    "react/jsx-uses-vars": "warn",
+    //props の値に対して PropTypes を指定していない場合に警告になるのをオフにする
+    "react/prop-types": "off",
+    //インデントはスペース2つ
+    "indent": [
+      "error",
+      2
+    ],
+    //セミコロンを必ず付ける
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
+}
