@@ -35,6 +35,9 @@
   "ignorePatterns": [
     "webpack.config.js"
   ],
+  "globals": {
+    "chrome": true
+  },
   //個別のルールの指定
   "rules": {
     //React が未使用として誤ってマークされるのを防止（警告にする）
@@ -43,6 +46,7 @@
     "react/jsx-uses-vars": "warn",
     //props の値に対して PropTypes を指定していない場合に警告になるのをオフにする
     "react/prop-types": "off",
+    "no-unused-vars": "warn",
     //インデントはスペース2つ
     "indent": [
       "error",

@@ -16,6 +16,16 @@
         "default_title": "今日の作業記録を取得する",
         "default_popup": "popup.html"
     },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://track.toggl.com/timer"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
     "background": {
         "service_worker": "background.js"
     }

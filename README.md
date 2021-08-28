@@ -3,15 +3,16 @@
 ## 学びたいこと
 
 - [Chrome 拡張機能](https://developer.chrome.com/docs/extensions/reference/)
-- React
 - [webpack5](https://webpack.js.org/)
+- React
+- [Material UI](https://material-ui.com/)
 - TypeScript
 
 ## TODO
 
-- フォルダの整理
-  - background.js, content.js, manifest.json
-  - default_popup（React）
+- [x] フォルダの整理
+  - [x] background.js, content.js, manifest.json
+  - [x] default_popup（React）
 - クリップボード機能を実装
   - React 製の HTML をポップアップ表示させる
   - 適当なボタンを配置して、そのボタン押下でクリップボード機能が発火

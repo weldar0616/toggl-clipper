@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+import App from './components/app';
 import './style.scss';
 
-const root = document.createElement('div');
-root.setAttribute('id', 'root');
-document.body.appendChild(root);
+class Layout extends React.Component {
+  render() {
+    return (
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  }
+}
 
+const app = document.getElementById('app');
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Layout />,
+  app
 );
