@@ -11,8 +11,6 @@ module.exports = {
   mode: 'development', // production or development
   devtool: 'inline-source-map',
   entry: {
-    background: './src/background.js',
-    content: './src/content.js',
     index: './src/popup/index.js',
   },
   output: {
@@ -90,7 +88,8 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/plugin-transform-runtime']
           }
         }
       }
