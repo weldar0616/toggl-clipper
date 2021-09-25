@@ -1,4 +1,4 @@
-# [ChromeExtensions] Toggl Track Today's Reports copy to Clipboard
+# [ChromeExtensions] Copy Toggl Track Today's Reports to Clipboard
 
 ## Topics I want to learn
 
