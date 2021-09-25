@@ -11,14 +11,11 @@ class TogglTask {
   async loadApiToken() {
     const token = await load(TOGGL_REPORTS_API_TOKEN_KEY);
     this._token = token;
-    if (token !== "") return; // TODO: apiTokenがセットされていなかったらそもそもボタンを押させない
+    if (token !== "") return;
   }
 
   async fetchItems() {
-    // TODO: API呼び出し用のクラスを作る
     const API_URL = `https://toggl.com/reports/api/v2/summary?user_agent=test&workspace_id=5385719&since=${getNowYMD()}`;
-    // TODO: 初期設定画面で指定 別途設定画面でも変更可能にする
-    // TODO: tokenがなければreject
     const username = this._token;
     const password = "api_token";
     const options = {
@@ -33,8 +30,6 @@ class TogglTask {
       return Promise.reject();
     }
 
-    // TODO: title null
-    // TODO: 並び替え 作業時系列順に取得したい
     this._items = togglData.data.map(data => new TogglTaskItem({ title: data.title.project, time: ms2hour(data.time) }));
 
     console.log("*** this._items", this._items);
@@ -42,9 +37,6 @@ class TogglTask {
   }
 
   get formattedText() {
-    // TODO: 文言 設定値を使用したい
-    // TODO: プレビュー
-    // TODO: フォーマットを設定できるように ex. {proj_title} とか
     const taskList = () => {
       let ret = "";
       for (const item of this._items) {
