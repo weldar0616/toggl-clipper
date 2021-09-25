@@ -11,8 +11,8 @@ module.exports = {
   mode: 'development', // production or development
   devtool: 'inline-source-map',
   entry: {
-    popup: './src/popup/popup.js',
-    options: './src/options/options.js'
+    popup: './src/popup/popup.tsx',
+    options: './src/options/options.tsx'
   },
   output: {
     path: DIST_DIR,
@@ -89,15 +89,10 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.(js|mjs|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/plugin-transform-runtime']
-          }
-        }
+        test: /\.tsx?$/,
+        use: [
+          { loader: 'ts-loader' }
+        ],
       }
     ]
   },

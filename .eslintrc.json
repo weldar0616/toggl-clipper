@@ -6,26 +6,24 @@
     // inspired by https://knote.dev/post/2020-08-29/duprecated-eslint-plugin-prettier/
     "extends": [
         "eslint:recommended",
-        // "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
-        // "react-app",
-        // "react-app/jest",
         "eslint-config-prettier" // prettier
     ],
-    //   "parser": "@typescript-eslint/parser",
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
         },
         "ecmaVersion": 12,
-        "sourceType": "module"
-        // "project": "./tsconfig.json"
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
     "plugins": [
-        // "@typescript-eslint"
+        "@typescript-eslint"
     ],
     "ignorePatterns": [
-        // "webpack.config.js"
+        "webpack.config.js"
     ],
     "globals": {
         "chrome": true
