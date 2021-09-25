@@ -14,6 +14,13 @@
 - options.html
   - `chrome-extension://aabhhgaagifekhoknmnhpjpedldfmdpc/options.html`
 
+## Requirement
+
+```
+node v16.3.0
+npm  v7.15.1
+```
+
 ## Install & Build
 
 ```
