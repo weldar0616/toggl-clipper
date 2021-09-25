@@ -7,24 +7,24 @@ export const getNowYMD = () => {
   return `${y}-${m}-${d}`;
 };
 
-export const ms2hour = (msTime) => {
+export const ms2hour = (msTime: number) => {
   return msTime / (1000 * 60 * 60);
 };
 
-export const floorDecimalPlace = (val, decimalPlace = 1) => {
+export const floorDecimalPlace = (val: number, decimalPlace: number = 1) => {
   return Math.floor(val * (10 ** decimalPlace)) / (10 ** decimalPlace);
 };
 
-export const save = async (key, value = "") => {
-  return new Promise(resolve => {
+export const saveChromeStorage = async (key: string, value: string = "") => {
+  return new Promise<void>(resolve => {
     chrome.storage.local.set({ [key]: value }, () => {
       return resolve();
     });
   });
 };
 
-export const load = async (key) => {
-  return new Promise(resolve => {
+export const loadChromeStorage = async (key: string) => {
+  return new Promise<string>(resolve => {
     chrome.storage.local.get([key], (items) => {
       return resolve(items[key]);
     });
