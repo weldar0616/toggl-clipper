@@ -1,0 +1,15 @@
+{
+  //ファイル保存時にeslintによるfix処理を行う
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  //フォーマッタのデフォルトをPrettierに
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  //ファイル保存時に自動的にフォーマットする
+  "editor.formatOnSave": true,
+  //デフォルトのCSSのLintを止めて、StylelintによるLintを行うための設定
+  "css.validate": false,
+  "scss.validate": false,
+}

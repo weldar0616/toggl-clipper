@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        // "clinyong.vscode-css-modules",
+        // "pucelle.vscode-css-navigation",
+        "dbaeumer.vscode-eslint",
+        "ionutvmi.path-autocomplete",
+        // "stylelint.vscode-stylelint",
+        "esbenp.prettier-vscode"
+    ]
+}
