@@ -9,10 +9,14 @@
         "128": "images/icon128.png"
     },
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
     "action": {
         "default_title": "今日の作業記録を取得する",
         "default_popup": "popup.html"
+    },
+    "options_ui": {
+        "page": "options.html"
     }
 }

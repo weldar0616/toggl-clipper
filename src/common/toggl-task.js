@@ -1,14 +1,25 @@
 import { getNowYMD, ms2hour, floorDecimalPlace } from './core';
+import { load } from '../options/core';
+import { TOGGL_REPORTS_API_TOKEN_KEY } from './const';
 
-export class TogglTask {
+class TogglTask {
   constructor() {
     this._items = [];
+    this._token = "";
+    this.loadApiToken();
+  }
+
+  async loadApiToken() {
+    const token = await load(TOGGL_REPORTS_API_TOKEN_KEY);
+    this._token = token;
+    if (token !== "") return; // TODO: apiTokenがセットされていなかったらそもそもボタンを押させない
   }
 
   async fetchItems() {
     const API_URL = `https://toggl.com/reports/api/v2/summary?user_agent=test&workspace_id=5385719&since=${getNowYMD()}`;
     // TODO: 初期設定画面で指定 別途設定画面でも変更可能にする
-    const username = ""; // TODO: Toggl API Tokenを指定
+    // TODO: tokenがなければreject
+    const username = this._token;
     const password = "api_token";
     const options = {
       method: 'GET',
@@ -41,8 +52,7 @@ export class TogglTask {
       }
       return ret;
     };
-    let ret = "";
-    ret += "本日の業務を終了いたします\n";
+    let ret = "本日の業務を終了いたします\n";
     ret += "やったこと\n";
     ret += taskList();
     ret += "やること\n";
@@ -52,6 +62,7 @@ export class TogglTask {
     return ret;
   }
 }
+export const togglTask = new TogglTask();
 
 class TogglTaskItem {
   constructor(args) {

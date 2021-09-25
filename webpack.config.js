@@ -11,7 +11,8 @@ module.exports = {
   mode: 'development', // production or development
   devtool: 'inline-source-map',
   entry: {
-    index: './src/popup/index.js',
+    popup: './src/popup/popup.js',
+    options: './src/options/options.js'
   },
   output: {
     path: DIST_DIR,
@@ -36,6 +37,11 @@ module.exports = {
         },
         {
           context: 'src/popup',
+          from: '*.html',
+          to: DIST_DIR,
+        },
+        {
+          context: 'src/options',
           from: '*.html',
           to: DIST_DIR,
         },

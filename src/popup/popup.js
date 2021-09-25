@@ -1,6 +1,20 @@
-import { clipper } from '../modules/clipper';
-import { TogglTask } from '../modules/toggl-task';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/app';
+import './style.scss';
 
-export const sendToContents = () => {
-  clipper(new TogglTask());
-};
+class Layout extends React.Component {
+  render() {
+    return (
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  }
+}
+
+const app = document.getElementById('app');
+ReactDOM.render(
+  <Layout />,
+  app
+);

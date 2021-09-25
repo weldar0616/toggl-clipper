@@ -1,0 +1,1 @@
+export const TOGGL_REPORTS_API_TOKEN_KEY = "toggl_reports_api_token";

@@ -8,3 +8,8 @@
 - [React](https://ja.reactjs.org/)
 - [Material UI](https://material-ui.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+
+## デバッグ
+
+- options.html
+  - `chrome-extension://aabhhgaagifekhoknmnhpjpedldfmdpc/options.html`

@@ -3,7 +3,7 @@ export const getNowYMD = () => {
   const date = new Date();
   const y = date.getFullYear();
   const m = `${date.getMonth() + 1}`.padStart(2, '0');
-  const d = `${date.getDate() - 1}`.padStart(2, '0'); // TEST
+  const d = `${date.getDate()}`.padStart(2, '0'); // TEST: 日付調整はここで
   return `${y}-${m}-${d}`;
 };
 

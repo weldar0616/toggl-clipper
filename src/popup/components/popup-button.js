@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { sendToContents } from '../popup';
+import { clipper } from '../../common/clipper';
+import { togglTask } from '../../common/toggl-task';
 
 export default class PopupButton extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ export default class PopupButton extends React.Component {
   }
 
   handleOnClick() {
-    sendToContents();
+    clipper(togglTask);
   }
 
   render() {
