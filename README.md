@@ -29,9 +29,9 @@ webpack
 - open chrome://extensions
 - click 「パッケージ化されていない拡張機能を読み込む」
 - select `toggl-clipper/dist`
-### Set Toggl API
+### Set Toggl API Token
 - open https://track.toggl.com/profile
 - copy ApiToken
 - open 「Toggl Clipper」's options
 - Paste ApiToken to InputField & Click Save Button
-- All you have to do is run Toggl Clipper and press "クリップボードにコピー"
+- All you have to do is run Toggl Clipper and press 'クリップボードにコピー'
