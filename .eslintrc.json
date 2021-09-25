@@ -3,13 +3,14 @@
         "browser": true,
         "es2021": true
     },
+    // inspired by https://knote.dev/post/2020-08-29/duprecated-eslint-plugin-prettier/
     "extends": [
         "eslint:recommended",
         // "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         // "react-app",
         // "react-app/jest",
-        "eslint-config-prettier"
+        "eslint-config-prettier" // prettier
     ],
     //   "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -17,7 +18,7 @@
             "jsx": true
         },
         "ecmaVersion": 12,
-        "sourceType": "module",
+        "sourceType": "module"
         // "project": "./tsconfig.json"
     },
     "plugins": [
