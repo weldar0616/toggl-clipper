@@ -1,5 +1,4 @@
-import { getNowYMD, ms2hour, floorDecimalPlace } from './core';
-import { load } from '../options/core';
+import { getNowYMD, ms2hour, floorDecimalPlace, load } from './core';
 import { TOGGL_REPORTS_API_TOKEN_KEY } from './const';
 
 class TogglTask {
@@ -16,6 +15,7 @@ class TogglTask {
   }
 
   async fetchItems() {
+    // TODO: API呼び出し用のクラスを作る
     const API_URL = `https://toggl.com/reports/api/v2/summary?user_agent=test&workspace_id=5385719&since=${getNowYMD()}`;
     // TODO: 初期設定画面で指定 別途設定画面でも変更可能にする
     // TODO: tokenがなければreject

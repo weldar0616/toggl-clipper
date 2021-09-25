@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { save } from '../core';
+import { save } from '../../common/core';
 import { TOGGL_REPORTS_API_TOKEN_KEY } from '../../common/const';
 
 export default class SaveButton extends React.Component {
@@ -11,7 +11,6 @@ export default class SaveButton extends React.Component {
   }
 
   handleOnClick() {
-    // TODO: 他のコンポーネントの値取得方法
     const inputValue = document.getElementById("input-api-token").value.trim();
     save(TOGGL_REPORTS_API_TOKEN_KEY, inputValue);
   }
