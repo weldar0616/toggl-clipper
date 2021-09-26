@@ -1,5 +1,5 @@
 import React, { ReactPropTypes } from "react";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import { clipper } from "../../common/clipper";
 import { togglTask } from "../../common/toggl-task";
 
@@ -16,7 +16,7 @@ export default class PopupButton extends React.Component {
 
   render() {
     return (
-      <Button variant="contained" onClick={this.handleOnClick}>
+      <Button variant="outlined" onClick={this.handleOnClick}>
         クリップボードにコピー
       </Button>
     );
