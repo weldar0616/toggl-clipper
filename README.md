@@ -2,12 +2,13 @@
 
 ## Topics I want to learn
 
-- [ChromeExtensions](https://developer.chrome.com/docs/extensions/reference/)
+- [Chrome Extensions](https://developer.chrome.com/docs/extensions/reference/)
+  - Manifest v3
 - [webpack5](https://webpack.js.org/)
 - [Toggl Reports API v2](https://github.com/toggl/toggl_api_docs/blob/master/reports.md)
-- [React](https://ja.reactjs.org/)
-- [Material UI](https://material-ui.com/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [React 17.x](https://ja.reactjs.org/)
+- [Material UI v5](https://mui.com/)
+- [TypeScript 4.x](https://www.typescriptlang.org/)
 
 ## Debug
 
