@@ -12,7 +12,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     popup: './src/popup/popup.tsx',
-    options: './src/options/options.tsx'
+    options: './src/options/options.tsx',
   },
   output: {
     path: DIST_DIR,
@@ -21,7 +21,7 @@ module.exports = {
   },
   watch: true,
   watchOptions: {
-    ignored: /node_modules/
+    ignored: /node_modules/,
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -54,10 +54,7 @@ module.exports = {
     }),
   ],
   optimization: {
-    minimizer: [
-      new TerserPlugin({}),
-      new OptimizeCSSAssetsPlugin({}),
-    ]
+    minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
   },
   module: {
     rules: [
@@ -82,7 +79,7 @@ module.exports = {
           },
           'css-loader',
           'sass-loader',
-        ]
+        ],
       },
       {
         test: /\.(gif|png|jpe?g|svg)$/,
@@ -90,16 +87,12 @@ module.exports = {
       },
       {
         test: /\.tsx?$/,
-        use: [
-          { loader: 'ts-loader' }
-        ],
-      }
-    ]
+        use: [{ loader: 'ts-loader' }],
+      },
+    ],
   },
   resolve: {
-    extensions: [
-      '.ts', '.tsx', '.js', '.json'
-    ]
+    extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   target: ['web', 'es5'],
 };
