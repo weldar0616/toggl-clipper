@@ -1,17 +1,17 @@
 {
-    "eslint.packageManager": "npm",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    },
-    //フォーマッタのデフォルトをPrettierに
-    "[typescriptreact]": {
-        "editor.tabSize": 2,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    //ファイル保存時に自動的にフォーマットする
-    "editor.formatOnSave": true,
+  "eslint.packageManager": "npm",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  //フォーマッタのデフォルトをPrettierに
+  "[typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  //ファイル保存時に自動的にフォーマットする
+  "editor.formatOnSave": true
 }

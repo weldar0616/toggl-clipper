@@ -12,11 +12,11 @@ export const ms2hour = (msTime: number) => {
 };
 
 export const floorDecimalPlace = (val: number, decimalPlace: number = 1) => {
-  return Math.floor(val * (10 ** decimalPlace)) / (10 ** decimalPlace);
+  return Math.floor(val * 10 ** decimalPlace) / 10 ** decimalPlace;
 };
 
-export const saveChromeStorage = async (key: string, value: string = "") => {
-  return new Promise<void>(resolve => {
+export const saveChromeStorage = async (key: string, value: string = '') => {
+  return new Promise<void>((resolve) => {
     chrome.storage.local.set({ [key]: value }, () => {
       return resolve();
     });
@@ -24,7 +24,7 @@ export const saveChromeStorage = async (key: string, value: string = "") => {
 };
 
 export const loadChromeStorage = async (key: string) => {
-  return new Promise<string>(resolve => {
+  return new Promise<string>((resolve) => {
     chrome.storage.local.get([key], (items) => {
       return resolve(items[key]);
     });

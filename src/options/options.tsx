@@ -1,6 +1,6 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { App } from "./components/app";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { App } from './components/app';
 
 const Layout = () => {
   return (
@@ -10,4 +10,4 @@ const Layout = () => {
   );
 };
 
-ReactDOM.render(<Layout />, document.getElementById("app"));
+ReactDOM.render(<Layout />, document.getElementById('app'));

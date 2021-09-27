@@ -1,7 +1,7 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import { clipper } from "../../common/clipper";
-import { togglTask } from "../../common/toggl-task";
+import React from 'react';
+import Button from '@mui/material/Button';
+import { clipper } from '../../common/clipper';
+import { togglTask } from '../../common/toggl-task';
 
 export const PopupButton = () => {
   const handleOnClick = () => {

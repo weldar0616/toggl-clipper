@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { App } from "./components/app";
-import "./style.scss";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { App } from './components/app';
+import './style.scss';
 
 const Layout = () => {
   return (
@@ -11,4 +11,4 @@ const Layout = () => {
   );
 };
 
-ReactDOM.render(<Layout />, document.getElementById("app"));
+ReactDOM.render(<Layout />, document.getElementById('app'));
