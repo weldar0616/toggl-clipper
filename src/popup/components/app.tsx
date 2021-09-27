@@ -1,12 +1,10 @@
 import React from "react";
-import PopupButton from "./popup-button";
+import { PopupButton } from "./popup-button";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <PopupButton />
-      </div>
-    );
-  }
-}
+export const App = () => {
+  return (
+    <div className="App">
+      <PopupButton />
+    </div>
+  );
+};
