@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '@mui/material';
 import { PasswordInput } from './passwordInput';
 import { TOGGL_REPORTS_API_TOKEN_KEY } from '../../common/const';
-import { saveChromeStorage } from '../../common/core';
+import { loadChromeStorage, saveChromeStorage } from '../../common/core';
 
 interface State {
   apiToken: string;
@@ -11,6 +11,10 @@ interface State {
 export const App = () => {
   const [userSettings, setUserSettings] = React.useState<State>({
     apiToken: '',
+  });
+
+  React.useEffect(() => {
+    loadChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY).then(setApiToken);
   });
 
   const handleOnClick = () => {
