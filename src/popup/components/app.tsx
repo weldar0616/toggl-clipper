@@ -1,5 +1,5 @@
 import React from 'react';
-import { PopupButton } from './popup-button';
+import { PopupButton } from './popupButton';
 
 export const App = () => {
   return (

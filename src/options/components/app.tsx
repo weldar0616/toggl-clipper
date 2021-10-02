@@ -1,5 +1,5 @@
 import React from 'react';
-import { SaveButton } from './save-button';
+import { SaveButton } from './saveButton';
 
 export const App = () => {
   return (
