@@ -7,11 +7,6 @@ import {
 } from '../../common/const';
 import { loadChromeStorage, saveChromeStorage } from '../../common/core';
 
-interface State {
-  workspaceId: string;
-  apiToken: string;
-}
-
 const SETTINGS_LABEL = {
   workspaceId: 'workspaceId',
   apiToken: 'apiToken',
