@@ -1,10 +1,18 @@
+import { Button } from '@mui/material';
 import React from 'react';
-import { PopupButton } from './popupButton';
+import { clipper } from '../../common/clipper';
+import { togglTask } from '../../common/togglTask';
 
 export const App = () => {
+  const handleOnClick = () => {
+    clipper(togglTask);
+  };
+
   return (
     <div className="App">
-      <PopupButton />
+      <Button variant="outlined" onClick={handleOnClick}>
+        クリップボードにコピー
+      </Button>
     </div>
   );
 };
