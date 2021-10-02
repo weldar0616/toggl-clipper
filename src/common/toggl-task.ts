@@ -1,43 +1,13 @@
-import axios from 'axios';
-import {
-  getNowYMD,
-  ms2hour,
-  floorDecimalPlace,
-  loadChromeStorage,
-} from './core';
-import { TOGGL_REPORTS_API_TOKEN_KEY } from './const';
-import { ClippableModel } from './interfaces';
+import { Clippable } from './model/clippable';
+import { getTodaysTogglReportsCollection } from './api/togglReportApi';
+import { TogglReportEntity } from './model/togglReport';
 
-class TogglTask implements ClippableModel {
-  private items: TogglTaskItem[] = [];
-  private token: string = '';
-
-  constructor() {
-    this.loadApiToken();
-  }
-
-  async loadApiToken(): Promise<void> {
-    const token: string = await loadChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY);
-    this.token = token;
-  }
+class TogglTask implements Clippable {
+  private items: TogglReportEntity[] = [];
 
   async fetchItems(): Promise<void> {
-    const username = this.token;
-    const password = 'api_token';
-    const client = axios.create({
-      baseURL: 'https://toggl.com/reports/api/v2/',
-      headers: {
-        Authorization: `Basic ${btoa(username + ':' + password)}`,
-      },
-    });
-    const path = `summary?user_agent=test&workspace_id=5385719&since=${getNowYMD()}`;
-    const togglData = await client.get(path).then((response) => response.data);
-
-    this.items = togglData.data.map(
-      (data: any) => new TogglTaskItem(data.title.project, ms2hour(data.time)),
-    );
-
-    console.log('*** this.items', this.items); // TEST
+    this.items = await getTodaysTogglReportsCollection();
+    console.log('TogglTask#fetchItems items', this.items); // TEST
     return Promise.resolve();
   }
 
@@ -60,19 +30,3 @@ class TogglTask implements ClippableModel {
   }
 }
 export const togglTask = new TogglTask();
-
-class TogglTaskItem {
-  private _title: string;
-  private _time: number;
-
-  constructor(title: string, time: number) {
-    this._title = title;
-    this._time = floorDecimalPlace(time, 2);
-  }
-  get title(): string {
-    return this._title;
-  }
-  get time(): number {
-    return this._time;
-  }
-}

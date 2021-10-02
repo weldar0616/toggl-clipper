@@ -1,4 +1,4 @@
-import { ClippableModel } from './interfaces';
+import { Clippable } from './model/clippable';
 
 const copyToClipboard = (text: string = '') => {
   navigator.clipboard.writeText(text).catch(() => {
@@ -6,7 +6,7 @@ const copyToClipboard = (text: string = '') => {
   });
 };
 
-export const clipper = async (model: ClippableModel) => {
+export const clipper = async (model: Clippable) => {
   await model.fetchItems().catch(() => {
     window.alert('[Toggl Clipper] Failed.');
   });
