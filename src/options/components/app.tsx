@@ -18,45 +18,33 @@ const SETTINGS_LABEL = {
 };
 
 export const App = () => {
-  const [userSettings, setUserSettings] = React.useState<State>({
-    workspaceId: '',
-    apiToken: '',
-  });
+  const [workspaceId, setWorkspaceId] = React.useState('');
+  const [apiToken, setApiToken] = React.useState('');
 
   React.useEffect(() => {
-    loadChromeStorage(TOGGL_REPORTS_WORKSPACE_ID).then((response) => {
-      if (response) setWorkspaceId(response);
-    });
     loadChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY).then((response) => {
       if (response) setApiToken(response);
+    });
+    loadChromeStorage(TOGGL_REPORTS_WORKSPACE_ID).then((response) => {
+      if (response) setWorkspaceId(response);
     });
   }, []);
 
   const handleOnClick = () => {
-    saveChromeStorage(TOGGL_REPORTS_WORKSPACE_ID, userSettings.workspaceId);
-    saveChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY, userSettings.apiToken);
-  };
-
-  const updateUserSettings = (value: string, prop: string) => {
-    setUserSettings({ ...userSettings, [prop]: value });
-  };
-  const setWorkspaceId = (value: string) => {
-    updateUserSettings(value, SETTINGS_LABEL.workspaceId);
-  };
-  const setApiToken = (value: string) => {
-    updateUserSettings(value, SETTINGS_LABEL.apiToken);
+    saveChromeStorage(TOGGL_REPORTS_WORKSPACE_ID, workspaceId);
+    saveChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY, apiToken);
   };
 
   return (
     <div className="App">
       <PasswordInput
         label={SETTINGS_LABEL.workspaceId}
-        edittingValue={userSettings.workspaceId}
+        edittingValue={workspaceId}
         onEdittingValueUpdated={setWorkspaceId}
       />
       <PasswordInput
         label={SETTINGS_LABEL.apiToken}
-        edittingValue={userSettings.apiToken}
+        edittingValue={apiToken}
         onEdittingValueUpdated={setApiToken}
       />
       {/* TODO: Buttonの配置を右端に */}
