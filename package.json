@@ -42,6 +42,7 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.0.1",
     "@mui/material": "^5.0.1",
     "@mui/styles": "^5.0.1",
     "react": "^17.0.2",
