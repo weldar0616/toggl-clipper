@@ -1,13 +1,15 @@
 import axios, { AxiosResponse } from "axios";
-import { TOGGL_REPORTS_API_TOKEN_KEY } from "../const";
+import { TOGGL_REPORTS_API_TOKEN_KEY, TOGGL_REPORTS_WORKSPACE_ID } from "../const";
 import { floorDecimalPlace, getNowYMD, loadChromeStorage, ms2hour } from "../core";
 import { TogglReportEntity } from "../model/togglReport";
 
 const togglURL = "https://toggl.com";
 const togglReportsUrl = `${togglURL}/reports/api/v2/`;
-const togglTodaysReportsUrl = `${togglReportsUrl}summary?user_agent=test&workspace_id=5385719&since=${getNowYMD()}`;
 
 export const getTodaysTogglReportsCollection = async (): Promise<TogglReportEntity[]> => {
+  const workspaceId: string = await loadChromeStorage(TOGGL_REPORTS_WORKSPACE_ID);
+  const togglTodaysReportsUrl = `${togglReportsUrl}summary?user_agent=test&workspace_id=${workspaceId}&since=${getNowYMD()}`;
+
   const username: string = await loadChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY);
   const password = 'api_token';
   const client = axios.create({
