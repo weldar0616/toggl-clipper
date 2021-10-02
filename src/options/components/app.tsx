@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { Alert, Box, Button, Snackbar } from '@mui/material';
 import { PasswordInput } from './passwordInput';
 import {
   TOGGL_REPORTS_API_TOKEN_KEY,
@@ -12,9 +12,16 @@ const SETTINGS_LABEL = {
   apiToken: 'apiToken',
 };
 
+enum AlertType {
+  NONE,
+  SUCCESS,
+  ERROR,
+}
+
 export const App = () => {
   const [workspaceId, setWorkspaceId] = React.useState('');
   const [apiToken, setApiToken] = React.useState('');
+  const [alertType, setAlertType] = React.useState<AlertType>(AlertType.NONE);
 
   React.useEffect(() => {
     loadChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY).then((response) => {
@@ -26,8 +33,16 @@ export const App = () => {
   }, []);
 
   const handleOnClick = () => {
-    saveChromeStorage(TOGGL_REPORTS_WORKSPACE_ID, workspaceId);
-    saveChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY, apiToken);
+    Promise.all([
+      saveChromeStorage(TOGGL_REPORTS_WORKSPACE_ID, workspaceId),
+      saveChromeStorage(TOGGL_REPORTS_API_TOKEN_KEY, apiToken),
+    ])
+      .then(() => {
+        setAlertType(AlertType.SUCCESS);
+      })
+      .catch(() => {
+        setAlertType(AlertType.ERROR);
+      });
   };
 
   return (
@@ -46,6 +61,12 @@ export const App = () => {
       <Button variant="outlined" onClick={handleOnClick}>
         保存
       </Button>
+      {alertType === AlertType.SUCCESS && (
+        <Alert severity="success">Successful save settings.</Alert>
+      )}
+      {alertType === AlertType.ERROR && (
+        <Alert severity="error">Fail save settings.</Alert>
+      )}
     </div>
   );
 };
