@@ -1,5 +1,9 @@
 # [ChromeExtensions] Copy Toggl Track Today's Reports to Clipboard
 
+## motivation
+- 業務における日報作業時間を短縮するため
+- フロントエンド周辺の技術について学習するため
+
 ## Topics I want to learn
 
 - [Chrome Extensions](https://developer.chrome.com/docs/extensions/reference/)
