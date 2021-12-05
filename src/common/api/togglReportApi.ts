@@ -3,7 +3,7 @@ import { TOGGL_REPORTS_API_TOKEN_KEY, TOGGL_REPORTS_WORKSPACE_ID } from "../cons
 import { floorDecimalPlace, getNowYMD, loadChromeStorage, ms2hour } from "../core";
 import { TogglReportEntity } from "../model/togglReport";
 
-const togglURL = "https://toggl.com";
+const togglURL = "https://api.track.toggl.com";
 const togglReportsUrl = `${togglURL}/reports/api/v2/`;
 
 export const getTodaysTogglReportsCollection = async (): Promise<TogglReportEntity[]> => {
