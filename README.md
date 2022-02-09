@@ -38,7 +38,7 @@ npx webpack
 ### 拡張機能をインポート
 - chrome://extensions にアクセス
 - パッケージ化されていない拡張機能を読み込む をクリック
-- `patu/to/toggl-clipper/dist` を選択
+- `path/to/toggl-clipper/dist` を選択
 ### Toggl API Token を設定
 - https://track.toggl.com/profile にアクセスし、ApiToken と workspaceID を取得する
 - Toggl Clipper のオプションを開き、ApiToken と workspaceID 入力し保存ボタンを押下する
